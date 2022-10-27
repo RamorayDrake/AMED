@@ -18,16 +18,22 @@ pip install -r requirements.txt
 ```
 
 ## Getting Started
-### Cifar100
+### Imagenet with creating simulator and table
 ```
-python3 quant_train.py -a resnet18 --pretrained --epochs 50 --lr 0.001 -b 512 --ds cifar10 --data ./ --save-path checkpoints/ --wd 1e-4 -p 50 -qf 1 --create_table
-```
-### Imagenet
-```
-python3 quant_train.py -a resnet18 --pretrained --epochs 50 --lr 0.001 -b 128 --ds Imagenet --data PATH_TO_IMAGENET --save-path checkpoints/ --wd 1e-4 -p 50 -qf 1 --create_table
+python3 quant_train.py -a mobilenetv2_100 --pretrained --epochs 80 --lr 1e-3 -b 256 --data <path to DS> -j 16 --save-path <save path> --wd 1e-5 -p 50 -qf 2 --beta 1 -EMA 0.01 --create_table --create_sim
 ```
 
+defult HW arguments given in the code as
+```
+hw_args = ('eyeriss',12,14,108,108,108,'ws',10,1,200000000,True)
+```
+
+
+
 ## Updated:
+
+1. trained models will be updated soon
+
 
 ## Future work
 1. add power estimation to all benchmarks
